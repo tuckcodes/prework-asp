@@ -7,6 +7,8 @@ namespace prework_asp.Models
 {
     public class Cohort
     {
+        public int CohortID { get; set; }
+
         public string CohortName { get; set; }
 
         public string Schedule { get; set; }
@@ -16,8 +18,5 @@ namespace prework_asp.Models
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
-
-        public int CohortID { get; set; }
-
     }
 }

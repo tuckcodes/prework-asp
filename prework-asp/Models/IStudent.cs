@@ -8,9 +8,9 @@ namespace prework_asp.Models
     abstract class IStudent
     {
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
-        public int CnmId { get; set; }
+
         public string Cohort { get; set; }
-        public int ProgressId { get; set; }
     }
 }

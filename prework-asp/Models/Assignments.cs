@@ -7,6 +7,8 @@ namespace prework_asp.Models
 {
     public class Assignments
     {
+        public int AssignmentID { get; set; }
+
         public string Project { get; set; }
 
         public DateTime StartDate { get; set; }
