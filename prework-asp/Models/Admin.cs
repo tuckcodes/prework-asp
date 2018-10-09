@@ -8,7 +8,6 @@ namespace prework_asp.Models
     public class Admin 
     {
         public int AdminID { get; set; }
-
         public Boolean isAdmin { get; set; }
     }
 }
