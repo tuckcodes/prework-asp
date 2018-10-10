@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Models
 {
-    public class Cohort
+    public class Cohort 
     {
         public int CohortID { get; set; }
         [Required]
