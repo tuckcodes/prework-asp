@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Models
 {
-    public interface IPerson
+     interface IPerson
     {
-        [Display(Name = "First Name")]
         string GetFirstName();
 
-        [Display(Name = "Last Name")]
         string GetLastName();
 
         string GetAddress();
@@ -21,12 +19,10 @@ namespace prework_asp.Models
 
         string GetState();
 
-        [Display(Name = "Phone Number")]
         string GetPhoneNumber();
 
         string GetEmailAddress();
-
-        [Display(Name = "Date of birth")]
+   
         DateTime GetDateOfBirth();
 
     }

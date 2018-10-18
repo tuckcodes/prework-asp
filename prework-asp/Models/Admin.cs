@@ -13,7 +13,8 @@ namespace prework_asp.Models
 
         string IPerson.GetFirstName()
         {
-            return "First Name";
+            string name = "";
+            return name;
         }
 
         string IPerson.GetLastName()
@@ -48,7 +49,8 @@ namespace prework_asp.Models
 
         DateTime IPerson.GetDateOfBirth()
         {
-            throw new NotImplementedException();
+            DateTime dt = new DateTime();
+            return dt;
         }
     }
 }
