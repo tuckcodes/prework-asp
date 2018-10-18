@@ -52,5 +52,14 @@ namespace prework_asp.Models
             DateTime dt = new DateTime();
             return dt;
         }
+
+        // Admin will have many cohorts
+        // Many teachers 
+        // many students
+        public List<Cohort> Cohort { get; set; }
+        public List<Student> Student { get; set; }
+        public List<Teacher> Teacher { get; set; }
+
+
     }
 }
