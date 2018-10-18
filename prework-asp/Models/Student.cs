@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Models
 {
-    public class Student : IPerson
+    public class Student : Person, IPerson
     {
 
         public int StudentID { get; set; }
@@ -53,5 +53,13 @@ namespace prework_asp.Models
         {
             throw new NotImplementedException();
         }
+
+        // Student will have 1 teacher
+        // Student will have 1 progress 
+        public int TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
+
+        public int ProgressId { get; set; }
+        public Progress Progress { get; set; }
     }
 }

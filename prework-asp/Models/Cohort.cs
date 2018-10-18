@@ -22,5 +22,10 @@ namespace prework_asp.Models
         [Required]
         [Display(Name = "Ending Date")]
         public DateTime EndDate { get; set; }
+
+        // Cohort will have many teacher
+        // Cohort will have many students
+        public List<Teacher> Teacher { get; set; }
+        public List<Student> Student { get; set; }
     }
 }

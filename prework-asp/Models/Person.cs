@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Models
 {
-    abstract class Person
+    public abstract class Person
     {
         string FirstName;
         string LastName;
