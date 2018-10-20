@@ -9,6 +9,7 @@ namespace prework_asp.Models
     public class Progress
     {
         public int ProgressID { get; set; }
+
         [Required]
         [Display(Name = "Starting Date")]
         public DateTime StartedOn { get; set; }
@@ -37,5 +38,8 @@ namespace prework_asp.Models
 
         // Progress will have many students
         public int StudentID { get; set; }
+        public Student Student { get; set; }
+
+        public List<Assignments> Assignment { get; set; }
     }
 }

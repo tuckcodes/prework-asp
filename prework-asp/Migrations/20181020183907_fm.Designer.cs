@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using prework_asp.Data;
+using prework_asp.Data.Migrations;
 using System;
 
-namespace prework_asp.Data.Migrations
+namespace preworkasp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181020175328_butter_pancakes")]
-    partial class butter_pancakes
+    [Migration("20181020183907_fm")]
+    partial class fm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,6 +129,18 @@ namespace prework_asp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("prework_asp.Models.Admin", b =>
+                {
+                    b.Property<int>("AdminID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("isAdmin");
+
+                    b.HasKey("AdminID");
+
+                    b.ToTable("Admin");
+                });
+
             modelBuilder.Entity("prework_asp.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -180,6 +192,123 @@ namespace prework_asp.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("prework_asp.Models.Assignments", b =>
+                {
+                    b.Property<int>("AssignmentsID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("Issues")
+                        .IsRequired();
+
+                    b.Property<int>("ProgressID");
+
+                    b.Property<string>("Project")
+                        .IsRequired();
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.HasKey("AssignmentsID");
+
+                    b.HasIndex("ProgressID");
+
+                    b.ToTable("Assignment");
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Cohort", b =>
+                {
+                    b.Property<int>("CohortID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CohortName")
+                        .IsRequired();
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<bool>("InProgress");
+
+                    b.Property<string>("Schedule")
+                        .IsRequired();
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<int>("TclID");
+
+                    b.HasKey("CohortID");
+
+                    b.ToTable("Cohort");
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Progress", b =>
+                {
+                    b.Property<int>("ProgressID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Alert");
+
+                    b.Property<int>("CompletedAmount");
+
+                    b.Property<bool>("Finished");
+
+                    b.Property<int>("PreworkTask1");
+
+                    b.Property<int>("PreworkTask2");
+
+                    b.Property<int>("PreworkTask3");
+
+                    b.Property<int>("PreworkTask4");
+
+                    b.Property<int>("PreworkTask5");
+
+                    b.Property<DateTime>("StartedOn");
+
+                    b.Property<int>("StudentID");
+
+                    b.HasKey("ProgressID");
+
+                    b.HasIndex("StudentID")
+                        .IsUnique();
+
+                    b.ToTable("Progress");
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Student", b =>
+                {
+                    b.Property<int>("StudentID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CohortID");
+
+                    b.Property<int>("TeacherId");
+
+                    b.HasKey("StudentID");
+
+                    b.HasIndex("CohortID");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Teacher", b =>
+                {
+                    b.Property<int>("TeacherID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("AdminID");
+
+                    b.Property<int>("TclID");
+
+                    b.Property<bool>("isTeacher");
+
+                    b.HasKey("TeacherID");
+
+                    b.HasIndex("AdminID");
+
+                    b.ToTable("Teacher");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -223,6 +352,42 @@ namespace prework_asp.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Assignments", b =>
+                {
+                    b.HasOne("prework_asp.Models.Progress", "Progress")
+                        .WithMany("Assignment")
+                        .HasForeignKey("ProgressID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Progress", b =>
+                {
+                    b.HasOne("prework_asp.Models.Student", "Student")
+                        .WithOne("Progress")
+                        .HasForeignKey("prework_asp.Models.Progress", "StudentID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Student", b =>
+                {
+                    b.HasOne("prework_asp.Models.Cohort", "Cohort")
+                        .WithMany("Student")
+                        .HasForeignKey("CohortID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("prework_asp.Models.Teacher", "Teacher")
+                        .WithMany("Student")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("prework_asp.Models.Teacher", b =>
+                {
+                    b.HasOne("prework_asp.Models.Admin")
+                        .WithMany("Teacher")
+                        .HasForeignKey("AdminID");
                 });
 #pragma warning restore 612, 618
         }

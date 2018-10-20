@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using prework_asp.Data;
 using prework_asp.Models;
 using prework_asp.Services;
+using prework_asp.Data.Migrations;
 
 namespace prework_asp
 {

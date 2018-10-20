@@ -8,7 +8,7 @@ namespace prework_asp.Models
 {
     public class Assignments
     {
-        public int AssignmentID { get; set; }
+        public int AssignmentsID { get; set; }
 
         [Required]
         [Display(Name = "Project")]
@@ -25,5 +25,8 @@ namespace prework_asp.Models
         [Required]
         [Display(Name = "Issues")]
         public string Issues { get; set; }
+ 
+        public int ProgressID { get; set; }
+        public Progress Progress { get; set; }
     }
 }
