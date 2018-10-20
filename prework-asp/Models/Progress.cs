@@ -36,6 +36,6 @@ namespace prework_asp.Models
         public Boolean Finished { get; set; }
 
         // Progress will have many students
-        public List<Student> Student { get; set; }
+        public int StudentID { get; set; }
     }
 }

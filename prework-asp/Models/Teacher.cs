@@ -11,13 +11,8 @@ namespace prework_asp.Models
         public int TeacherID { get; set; }
 
         public Boolean isTeacher { get; set; }
-
-
-
         // Teacher will have many students
-        // Teacher will have many progresses
-        // Teacher will have 1 admin 
         public List<Student> Student { get; set; }
-        public List<Progress> Progress { get; set; }
+        public int TclID { get; set; }
     }
 }

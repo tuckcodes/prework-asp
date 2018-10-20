@@ -12,10 +12,6 @@ namespace prework_asp.Models
 
         public int ProgressID { get; set; }
 
-        public string Cohort { get; set; }
-
-        
-
         // Student will have 1 teacher
         // Student will have 1 progress 
         public int TeacherId { get; set; }
@@ -23,5 +19,8 @@ namespace prework_asp.Models
 
         public int ProgressId { get; set; }
         public Progress Progress { get; set; }
+
+        public int CohortID { get; set; }
+        public Cohort Cohort { get; set; }
     }
 }
