@@ -9,16 +9,20 @@ namespace prework_asp.Models
     public class Cohort 
     {
         public int CohortID { get; set; }
+
         [Required]
         [Display(Name = "Chohort Name")]
         public string CohortName { get; set; }
+
         [Required]
         [Display(Name = "Schedule")]
         public string Schedule { get; set; }
         public bool InProgress { get; set; }
+
         [Required]
         [Display(Name = "Started Date")]
         public DateTime StartDate { get; set; }
+
         [Required]
         [Display(Name = "Ending Date")]
         public DateTime EndDate { get; set; }

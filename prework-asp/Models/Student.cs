@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Models
 {
-    public class Student : Person, IPerson
+    public class Student : Person
     {
 
         public int StudentID { get; set; }
@@ -14,45 +14,7 @@ namespace prework_asp.Models
 
         public string Cohort { get; set; }
 
-        public string GetAddress()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCity()
-        {
-            throw new NotImplementedException();
-        }
-
-        public DateTime GetDateOfBirth()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetEmailAddress()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetFirstName()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetLastName()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetPhoneNumber()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetState()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         // Student will have 1 teacher
         // Student will have 1 progress 
