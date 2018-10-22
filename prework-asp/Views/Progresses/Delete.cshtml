@@ -1,0 +1,81 @@
+﻿@model prework_asp.Models.Progress
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Progress</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartedOn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreworkTask1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreworkTask1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreworkTask2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreworkTask2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreworkTask3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreworkTask3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreworkTask4)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreworkTask4)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PreworkTask5)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PreworkTask5)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompletedAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Alert)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alert)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Finished)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Finished)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.StudentID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProgressID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

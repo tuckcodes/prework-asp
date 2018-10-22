@@ -1,0 +1,89 @@
+﻿@model IEnumerable<prework_asp.Models.Progress>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PreworkTask1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PreworkTask2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PreworkTask3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PreworkTask4)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PreworkTask5)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompletedAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Alert)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Finished)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreworkTask1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreworkTask2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreworkTask3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreworkTask4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreworkTask5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletedAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alert)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Finished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProgressID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProgressID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProgressID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

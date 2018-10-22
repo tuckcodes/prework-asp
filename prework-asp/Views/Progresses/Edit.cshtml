@@ -1,0 +1,83 @@
+﻿@model prework_asp.Models.Progress
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Progress</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProgressID" />
+            <div class="form-group">
+                <label asp-for="StartedOn" class="control-label"></label>
+                <input asp-for="StartedOn" class="form-control" />
+                <span asp-validation-for="StartedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreworkTask1" class="control-label"></label>
+                <input asp-for="PreworkTask1" class="form-control" />
+                <span asp-validation-for="PreworkTask1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreworkTask2" class="control-label"></label>
+                <input asp-for="PreworkTask2" class="form-control" />
+                <span asp-validation-for="PreworkTask2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreworkTask3" class="control-label"></label>
+                <input asp-for="PreworkTask3" class="form-control" />
+                <span asp-validation-for="PreworkTask3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreworkTask4" class="control-label"></label>
+                <input asp-for="PreworkTask4" class="form-control" />
+                <span asp-validation-for="PreworkTask4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreworkTask5" class="control-label"></label>
+                <input asp-for="PreworkTask5" class="form-control" />
+                <span asp-validation-for="PreworkTask5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompletedAmount" class="control-label"></label>
+                <input asp-for="CompletedAmount" class="form-control" />
+                <span asp-validation-for="CompletedAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Alert" /> @Html.DisplayNameFor(model => model.Alert)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Finished" /> @Html.DisplayNameFor(model => model.Finished)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentID" class="control-label"></label>
+                <select asp-for="StudentID" class="form-control" asp-items="ViewBag.StudentID"></select>
+                <span asp-validation-for="StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
