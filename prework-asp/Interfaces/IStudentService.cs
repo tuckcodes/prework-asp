@@ -8,7 +8,7 @@ namespace prework_asp.Interfaces
 {
     interface IStudentService
     {
-       Student GetSId(Student student);
+       void GetSId(Student student);
        void GetProg();
        void GetCohorts();
     }

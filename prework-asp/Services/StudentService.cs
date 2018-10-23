@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using prework_asp.Interfaces;
-using prework_asp.Data.Migrations;
 using prework_asp.Models;
+using prework_asp.Data.Migrations;
 
 namespace prework_asp.Services
 {
@@ -27,11 +27,11 @@ namespace prework_asp.Services
             //TODO: define when needed
         }
 
-        public Student GetSId(Student sUser)
+        public void GetSId(Student sUser)
         {
-            var result = _context.Student.Add(sUser);
+            var result = _context.Student
+                .Add(sUser);
             _context.SaveChanges();
-            return result;
         }
     }
 
