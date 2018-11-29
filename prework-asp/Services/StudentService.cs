@@ -22,9 +22,10 @@ namespace prework_asp.Services
             var isCohort = _context.Cohort.SingleOrDefault();
         }
 
-        public void GetProg()
+      
+        public void GetProgress()
         {
-            //TODO: define when needed
+            throw new NotImplementedException();
         }
 
         public void GetSId(Student sUser)
@@ -32,6 +33,11 @@ namespace prework_asp.Services
             var result = _context.Student
                 .Add(sUser);
             _context.SaveChanges();
+        }
+
+        public void GetStudentId(Student student)
+        {
+            throw new NotImplementedException();
         }
     }
 
