@@ -7,20 +7,20 @@ namespace prework_asp.Models
 {
     public abstract class Person
     {
-        string FirstName;
+        public string FirstName;
 
-        string LastName;
+        public string LastName;
 
-        string Address;
+        public string Address;
 
-        string City;
+        public string City;
 
-        string State;
+        public string State;
 
-        string PhoneNumber;
+        public string PhoneNumber;
 
-        string EmailNumber;
+        public string Email;
 
-        DateTime Birthday;
+        public DateTime Birthday;
     }
 }
