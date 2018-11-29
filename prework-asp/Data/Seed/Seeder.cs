@@ -26,10 +26,10 @@ namespace prework_asp.Data.Seed
                 LastName = lname,
                 PhoneNumber = phoneNum,
                 Email = email,
-                isAdmin = admin,
+                isAdmin = admin
             };
             context.Add(ad);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         // Seed Teacher 
