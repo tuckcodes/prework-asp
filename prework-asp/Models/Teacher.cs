@@ -15,11 +15,9 @@ namespace prework_asp.Models
         public string Email { get; set; }
         public string LastName { get; set; }
         public Boolean isTeacher { get; set; }
-        // Teacher will have many students
+        // Nav
         public List<Student> Student { get; set; }
-        //public int TclID { get; set; }
-
-        public int AdminId { get; set; }
+        public int AdminID { get; set; }
         public Admin Admin;
     }
 }

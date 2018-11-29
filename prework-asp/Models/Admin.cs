@@ -7,6 +7,8 @@ namespace prework_asp.Models
 {
     public class Admin
     {
+        public int AdminID { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -15,10 +17,8 @@ namespace prework_asp.Models
 
         public string Email { get; set; }
 
-        public int AdminID { get; set; }
-
         public bool isAdmin { get; set; }
-
+        // Nav
         public List<Teacher> Teacher { get; set; }
     }
 }

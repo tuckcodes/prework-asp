@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using prework_asp.Data.Migrations;
+using prework_asp.Data;
 using prework_asp.Models;
 
 namespace prework_asp.Controllers
@@ -22,7 +22,7 @@ namespace prework_asp.Controllers
         // GET: Assignments
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Assignment.Include(a => a.Progress);
+            var applicationDbContext = _context.Assignments.Include(a => a.Progress);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace prework_asp.Controllers
                 return NotFound();
             }
 
-            var assignments = await _context.Assignment
+            var assignments = await _context.Assignments
                 .Include(a => a.Progress)
                 .SingleOrDefaultAsync(m => m.AssignmentsID == id);
             if (assignments == null)
@@ -77,7 +77,7 @@ namespace prework_asp.Controllers
                 return NotFound();
             }
 
-            var assignments = await _context.Assignment.SingleOrDefaultAsync(m => m.AssignmentsID == id);
+            var assignments = await _context.Assignments.SingleOrDefaultAsync(m => m.AssignmentsID == id);
             if (assignments == null)
             {
                 return NotFound();
@@ -130,7 +130,7 @@ namespace prework_asp.Controllers
                 return NotFound();
             }
 
-            var assignments = await _context.Assignment
+            var assignments = await _context.Assignments
                 .Include(a => a.Progress)
                 .SingleOrDefaultAsync(m => m.AssignmentsID == id);
             if (assignments == null)
@@ -146,15 +146,15 @@ namespace prework_asp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var assignments = await _context.Assignment.SingleOrDefaultAsync(m => m.AssignmentsID == id);
-            _context.Assignment.Remove(assignments);
+            var assignments = await _context.Assignments.SingleOrDefaultAsync(m => m.AssignmentsID == id);
+            _context.Assignments.Remove(assignments);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AssignmentsExists(int id)
         {
-            return _context.Assignment.Any(e => e.AssignmentsID == id);
+            return _context.Assignments.Any(e => e.AssignmentsID == id);
         }
     }
 }

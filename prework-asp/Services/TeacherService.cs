@@ -1,4 +1,4 @@
-﻿using prework_asp.Data.Migrations;
+﻿using prework_asp.Data;
 using prework_asp.Interfaces;
 using prework_asp.Models;
 using System;

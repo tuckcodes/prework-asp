@@ -1,4 +1,4 @@
-﻿using prework_asp.Data.Migrations;
+﻿using prework_asp.Data;
 using prework_asp.Models;
 using System;
 using System.Collections.Generic;
@@ -13,8 +13,8 @@ namespace prework_asp.Data.Seed
         public static void Seed(ApplicationDbContext context)
         {
             AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true, context);
-            //StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu", context);
             //TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true, context);
+            //StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu", context);
             //CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), context);
         }
         // Seed Admin
@@ -44,7 +44,7 @@ namespace prework_asp.Data.Seed
                 isTeacher = teacher
             };
             context.Add(teach);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         // Seed Student 
@@ -58,7 +58,7 @@ namespace prework_asp.Data.Seed
                 Email = email
             };
             context.Add(student);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         // Seed Cohort
@@ -72,7 +72,7 @@ namespace prework_asp.Data.Seed
                 EndDate = endDate
             };
             context.Add(cohort);
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         // Seed progress

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using prework_asp.Interfaces;
 using prework_asp.Models;
-using prework_asp.Data.Migrations;
+using prework_asp.Data;
 
 namespace prework_asp.Services
 {
