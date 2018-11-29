@@ -12,13 +12,13 @@ namespace prework_asp.Data.Seed
        
         public static void Seed(ApplicationDbContext context)
         {
-            StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu");
-            TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true);
-            CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null));
-            AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true);
+            AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true, context);
+            //StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu", context);
+            //TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true, context);
+            //CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), context);
         }
         // Seed Admin
-        private static void AdminInitialize( string fname, string lname,string phoneNum,string email ,bool admin)
+        private static void AdminInitialize( string fname, string lname,string phoneNum,string email ,bool admin, ApplicationDbContext context)
         {
             var ad = new Admin
             {
@@ -28,10 +28,12 @@ namespace prework_asp.Data.Seed
                 Email = email,
                 isAdmin = admin,
             };
+            context.Add(ad);
+            context.SaveChangesAsync();
         }
 
         // Seed Teacher 
-        private static void TeacherInitialize(string fname, string lname, string phoneNum, string email, bool teacher)
+        private static void TeacherInitialize(string fname, string lname, string phoneNum, string email, bool teacher, ApplicationDbContext context)
         {
             var teach = new Teacher
             {
@@ -41,10 +43,12 @@ namespace prework_asp.Data.Seed
                 Email = email,
                 isTeacher = teacher
             };
+            context.Add(teach);
+            context.SaveChangesAsync();
         }
 
         // Seed Student 
-        private static void StudentInitialize(string fname, string lname, string phoneNum, string email)
+        private static void StudentInitialize(string fname, string lname, string phoneNum, string email, ApplicationDbContext context)
         {
             var student = new Student
             {
@@ -53,18 +57,22 @@ namespace prework_asp.Data.Seed
                 PhoneNumber = phoneNum,
                 Email = email
             };
+            context.Add(student);
+            context.SaveChangesAsync();
         }
 
         // Seed Cohort
-        private static void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate)
+        private static void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate, ApplicationDbContext context)
         {
-            var student = new Cohort
+            var cohort = new Cohort
             {
                 CohortName = cName,
                 InProgress = progress,
                 StartDate = startDate,
                 EndDate = endDate
             };
+            context.Add(cohort);
+            context.SaveChangesAsync();
         }
 
         // Seed progress
