@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace preworkasp.Migrations
 {
-    public partial class fm : Migration
+    public partial class ini : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,6 +15,10 @@ namespace preworkasp.Migrations
                 {
                     AdminID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -85,19 +89,22 @@ namespace preworkasp.Migrations
                 {
                     TeacherID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AdminID = table.Column<int>(type: "int", nullable: true),
-                    TclID = table.Column<int>(type: "int", nullable: false),
+                    AdminId = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isTeacher = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teacher", x => x.TeacherID);
                     table.ForeignKey(
-                        name: "FK_Teacher_Admin_AdminID",
-                        column: x => x.AdminID,
+                        name: "FK_Teacher_Admin_AdminId",
+                        column: x => x.AdminId,
                         principalTable: "Admin",
                         principalColumn: "AdminID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +220,10 @@ namespace preworkasp.Migrations
                     StudentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CohortID = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TeacherId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -344,9 +355,9 @@ namespace preworkasp.Migrations
                 column: "TeacherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teacher_AdminID",
+                name: "IX_Teacher_AdminId",
                 table: "Teacher",
-                column: "AdminID");
+                column: "AdminId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

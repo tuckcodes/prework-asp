@@ -18,11 +18,9 @@ namespace prework_asp
 {
     public class Startup
     {
-       // private readonly ApplicationDbContext _context;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-           // _context = context;
         }
 
         public IConfiguration Configuration { get; }
@@ -53,8 +51,7 @@ namespace prework_asp
                 app.UseDatabaseErrorPage();
 
                 // seed
-                var seed = new Seeder(context);
-                seed.Seed();
+                Seeder.Seed(context);
             }
             else
             {

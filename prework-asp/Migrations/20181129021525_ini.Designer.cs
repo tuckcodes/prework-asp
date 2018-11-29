@@ -11,8 +11,8 @@ using System;
 namespace preworkasp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181020183907_fm")]
-    partial class fm
+    [Migration("20181129021525_ini")]
+    partial class ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,6 +133,14 @@ namespace preworkasp.Migrations
                 {
                     b.Property<int>("AdminID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("isAdmin");
 
@@ -280,6 +288,14 @@ namespace preworkasp.Migrations
 
                     b.Property<int>("CohortID");
 
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
                     b.Property<int>("TeacherId");
 
                     b.HasKey("StudentID");
@@ -296,15 +312,21 @@ namespace preworkasp.Migrations
                     b.Property<int>("TeacherID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AdminID");
+                    b.Property<int>("AdminId");
 
-                    b.Property<int>("TclID");
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("isTeacher");
 
                     b.HasKey("TeacherID");
 
-                    b.HasIndex("AdminID");
+                    b.HasIndex("AdminId");
 
                     b.ToTable("Teacher");
                 });
@@ -387,7 +409,8 @@ namespace preworkasp.Migrations
                 {
                     b.HasOne("prework_asp.Models.Admin")
                         .WithMany("Teacher")
-                        .HasForeignKey("AdminID");
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

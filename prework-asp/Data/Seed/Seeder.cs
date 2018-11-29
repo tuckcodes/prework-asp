@@ -7,25 +7,18 @@ using System.Threading.Tasks;
 
 namespace prework_asp.Data.Seed
 {
-    public class Seeder
+    public static class Seeder
     {
-        private readonly ApplicationDbContext _context;
-
-        public Seeder(ApplicationDbContext context)
+       
+        public static void Seed(ApplicationDbContext context)
         {
-            _context = context;
-        }
-
-        // TODO: Test and see if context needs to be passed in
-        public  void Seed()
-        {
+            StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu");
+            TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true);
+            CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null));
             AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true);
-            //TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true);
-            //StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu");
-            //CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null));
         }
         // Seed Admin
-        private void AdminInitialize(string fname, string lname,string phoneNum,string email ,bool admin)
+        private static void AdminInitialize( string fname, string lname,string phoneNum,string email ,bool admin)
         {
             var ad = new Admin
             {
@@ -33,12 +26,12 @@ namespace prework_asp.Data.Seed
                 LastName = lname,
                 PhoneNumber = phoneNum,
                 Email = email,
-                isAdmin = admin
+                isAdmin = admin,
             };
         }
 
         // Seed Teacher 
-        private void TeacherInitialize(string fname, string lname, string phoneNum, string email, bool teacher)
+        private static void TeacherInitialize(string fname, string lname, string phoneNum, string email, bool teacher)
         {
             var teach = new Teacher
             {
@@ -51,7 +44,7 @@ namespace prework_asp.Data.Seed
         }
 
         // Seed Student 
-        private void StudentInitialize(string fname, string lname, string phoneNum, string email)
+        private static void StudentInitialize(string fname, string lname, string phoneNum, string email)
         {
             var student = new Student
             {
@@ -63,7 +56,7 @@ namespace prework_asp.Data.Seed
         }
 
         // Seed Cohort
-        private void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate)
+        private static void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate)
         {
             var student = new Cohort
             {
@@ -73,6 +66,10 @@ namespace prework_asp.Data.Seed
                 EndDate = endDate
             };
         }
+
+        // Seed progress
+
+        // Seed assignment
 
     }
 
