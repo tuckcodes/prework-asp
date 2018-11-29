@@ -12,14 +12,17 @@ using prework_asp.Data;
 using prework_asp.Models;
 using prework_asp.Services;
 using prework_asp.Data.Migrations;
+using prework_asp.Data.Seed;
 
 namespace prework_asp
 {
     public class Startup
     {
+       // private readonly ApplicationDbContext _context;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           // _context = context;
         }
 
         public IConfiguration Configuration { get; }
@@ -41,13 +44,17 @@ namespace prework_asp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
+
+                // seed
+                var seed = new Seeder(context);
+                seed.Seed();
             }
             else
             {
