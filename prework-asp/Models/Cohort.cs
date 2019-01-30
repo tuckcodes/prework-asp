@@ -26,8 +26,6 @@ namespace prework_asp.Models
         [Required]
         [Display(Name = "Ending Date")]
         public DateTime EndDate { get; set; }
-
-        public int TclID { get; set; }
         public List<Student> Student { get; set; }
     }
 }

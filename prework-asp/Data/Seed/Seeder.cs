@@ -12,10 +12,12 @@ namespace prework_asp.Data.Seed
        
         public static void Seed(ApplicationDbContext context)
         {
-            AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true, context);
-            //TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true, context);
-            //StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu", context);
-            //CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), context);
+
+            //AdminInitialize("Andrea", "Wichman", "55555555", "msisneroswichm@cnm.edu", true, context);
+            //CohortInitialize("Cohort 1", true, DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), DateTime.ParseExact("15/06/2015 13:45:00", "dd/MM/yyyy HH:mm:ss", null), "jan", context);
+
+           //  TeacherInitialize("Brian", "Jones", "55555555", "brianjones@solution", true, context);
+           // StudentInitialize("Dustin", "Fleming", "5555555", "dustin@cnm.edu", context);
         }
         // Seed Admin
         private static void AdminInitialize( string fname, string lname,string phoneNum,string email ,bool admin, ApplicationDbContext context)
@@ -62,20 +64,28 @@ namespace prework_asp.Data.Seed
         }
 
         // Seed Cohort
-        private static void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate, ApplicationDbContext context)
+        private static void CohortInitialize(string cName, bool progress, DateTime startDate, DateTime endDate, string schedule ,ApplicationDbContext context)
         {
             var cohort = new Cohort
             {
                 CohortName = cName,
                 InProgress = progress,
                 StartDate = startDate,
-                EndDate = endDate
+                EndDate = endDate,
+                Schedule = schedule
             };
             context.Add(cohort);
             context.SaveChanges();
         }
 
         // Seed progress
+        //private static void ProgressInitialize(DateTime _startedOn, int PreworkTask1, int PreworkTask2, int PreWorkTask3, int PreWorkTask4, int PreWorkTask5, int CompletedAmount,bool Alert, bool Finished, ApplicationDbContext _context)
+        //{
+        //    var progress = new Progress
+        //    {
+                
+        //    }
+        //}
 
         // Seed assignment
 

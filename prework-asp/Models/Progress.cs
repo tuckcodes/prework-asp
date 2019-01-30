@@ -31,10 +31,10 @@ namespace prework_asp.Models
         [Required]
         [Display(Name = "Completed Total")]
         public int CompletedAmount { get; set; }
-        public Boolean Alert { get; set; }
+        public bool Alert { get; set; }
         [Required]
         [Display(Name = "Finished")]
-        public Boolean Finished { get; set; }
+        public bool Finished { get; set; }
 
         // Progress will have many students
         public int StudentID { get; set; }

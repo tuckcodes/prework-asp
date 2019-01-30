@@ -51,7 +51,7 @@ namespace prework_asp
                 app.UseDatabaseErrorPage();
 
                 // seed
-                Seeder.Seed(context);
+               // Seeder.Seed(context);
             }
             else
             {
